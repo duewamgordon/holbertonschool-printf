@@ -1,0 +1,46 @@
+Man page
+
+Name 
+_printf.c
+
+Synopsis
+
+#include “main.h”
+
+int _printf(const char *format, ...);
+
+#include <stdarg.h>
+#include <stdio.h>
+
+Description
+Write a function that produces output according to a format.
+The  function printf() writes output to stdout, the standard output stream.  This function writes the output under the control of a format string that specifies how subsequent arguments (or arguments accessed via  the  variable-length  argument facilities of stdarg(3)) are converted for output.
+
+   
+*Per the GNU, 2019-10-10,  PRINTF(3) - man 3 printf
+Conversion specifiers
+       A  character  that specifies the type of conversion to be applied.  The conversion specifiers and their meanings are:
+
+C - %c print a single character
+
+c      If  no l modifier is present, the int argument is converted to an unsigned char, and the resulting  character  is  written.   If  an  l modifier is present, the wint_t (wide character) argument  is  converted  to  a  multibyte  sequence  by a call to the wcrtomb(3) function, with a conversion state starting in the  initial state, and the resulting multibyte string is written.
+
+S - %s print a string of characters
+       s      If no l modifier is present: the const char * argument is expected to be a pointer to an array  of  character type (pointer to a string).  Characters from the array are written up to (but not  including)  a  terminating null byte ('\0'); if a precision is specified, no more than the number specified are written.  If a precision is  given, no null byte need be present; if the precision is not specified, or is greater than the size  of the  array,  the array must contain a terminating null byte.
+
+
+D - %d print a decimal (base 10) number
+I - %i print an integer in base 10
+d, i   The int argument is converted to signed decimal  notation.  The precision, if any, gives the minimum number of digits that must appear; if the converted value requires fewer digits, it is padded on the left with zeros.  The default precision is 1.  When 0  is  printed with an explicit precision 0, the output is empty.
+
+% - %% print a percent sign (\% also works)
+% start a format specification \% print a percent sign 
+ %      A '%' is written.  No argument is converted.  The com‐
+              plete conversion specification is '%%'.
+
+
+RETURN VALUE
+       Upon  successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings).
+
+
+
