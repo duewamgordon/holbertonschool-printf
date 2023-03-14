@@ -4,7 +4,7 @@
  
 /**
  * Write a function that produces output according to a format
- *
+ * for conversion specifiers.
  */
  
 int _printf(const char *format, ...);

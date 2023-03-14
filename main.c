@@ -39,7 +39,7 @@ int main(void)
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
 	/** printf("%c", "DuEwa");take out */
-	_printf("%c", "DuEwa");
+	_printf("%c", "DuEwaG");
 	return (0);
 }
 
