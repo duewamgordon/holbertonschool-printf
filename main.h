@@ -1,5 +1,6 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef
+#define 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
@@ -8,3 +9,5 @@
 #include <limits.h>
 
 int _printf(const char *format, ...);
+
+#endif
