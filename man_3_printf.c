@@ -14,7 +14,7 @@ DESCRIPTION
 
 Format of the format string: 
 
-	The format string is a character string. IT is composed of zero or more directives which ae copied to the output string and conversion specifiers introduced with the % symbol and ending with a conversion specifier. For this project the conversion specifieers c, s, d, and i are used.
+	The format string is a character string. It is composed of zero or more directives which are copied to the output string and conversion specifiers introduced with the % symbol and ending with a conversion specifier. For this project the conversion specifieers c, s, d, and i are used.
 
 Conversion Specifiers:
 
