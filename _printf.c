@@ -29,19 +29,19 @@ int _printf(const char *format, ...)
 			if (format[len] == 'c')
 			{
 				char c = va_arg(args, int);
-				_putchar(c);
+				putchar(c);
 				printed += 1;
 			}
 			else
 			{
-				_putchar('%');
-				_putchar(format[len]);
+				putchar('%');
+				putchar(format[len]);
 				printed += 2;
 			}
 		}
 		else
 		{
-			_putchar(format[len]);
+			putchar(format[len]);
 			printed += 1;
 		}
 		len++;
