@@ -8,13 +8,16 @@
 #include <stdarg.h>
 #include <limits.h>
 
-/**STRUCTURE*/
-/**
- * struct func - Structure of the format given to printf
- * @mod: The format specifier given
- * @f: The function that will be called
- */
+
+typedef struct print_function
+{
+	char letter;
+	int (*f)(va_list args);
+} func_v
 
 int _printf(const char *format, ...);
+int _print(char(va_list args);
+int _print_string(va_list args);
+int _putchar(char c);
 
 #endif
