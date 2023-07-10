@@ -13,10 +13,10 @@ typedef struct print_function
 {
 	char letter;
 	int (*f)(va_list args);
-} func_v
+} func_v;
 
 int _printf(const char *format, ...);
-int _print(char(va_list args);
+int _print(va_list args);
 int _print_string(va_list args);
 int _putchar(char c);
 

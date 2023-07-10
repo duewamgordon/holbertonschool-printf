@@ -1,4 +1,4 @@
-_PRINTF 		USER MANUAL 		_PRINTF
+_printf 		USER MANUAL 		_printf
 
 NAME
 
