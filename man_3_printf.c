@@ -1,12 +1,11 @@
-_PRINTF 		USER MANUAL 		_PRINTF
+
 
 NAME
 
-	MANUAL PAGE FOR THE _PRINTF FUNCTION
+	MAN FOR PRINT FUNCTION
 
 SYNOPSIS
 
-	#include <studio.h>
 	int printf(const char *format, ...)
 	
 DESCRIPTION
@@ -21,7 +20,7 @@ Conversion Specifiers:
 
 	Are characters that specify the type of conversion that needs to be applied.
 	C: Converts the c character into an unsigned char unless an l modifier is present.
-	S: The const char " argument is a pointer to a string if the l modifier is not present. The null terminating byte is not included in the string.
+	S: The const char argument is a pointer to a string if the l modifier is not present. The null terminating byte is not included in the string.
 
 	D: The integer argument is converted into a signed decimal notation.
 
