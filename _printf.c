@@ -10,46 +10,61 @@
 
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int len = 0, printed = 0;
+    va_list args;
+    int len = 0, printed = 0;
 
-	if (format == NULL)
-		return (-1);
+    if (format == NULL)
+        return (-1);
 
-	va_start(args, format);
+    va_start(args, format);
 
-	while (format[len] != '\0')
-	{
-		if (format[len] == '%')
-		{
-			len++;
-			if (format[len] == '\0')
-				return (-1);
+    while (format[len] != '\0')
+    {
+        if (format[len] == '%')
+        {
+            len++;
+            if (format[len] == '\0')
+                return (-1);
 
-			if (format[len] == 'c')
-			{
-				char c = va_arg(args, int);
-				putchar(c);
-				printed += 2;
-			}
-			else if (format[len] == 's')
-				printed += 2;
-			else
-			{
-				putchar('%');
-				putchar(format[len]);
-				printed += 2;
-			}
-		}
-		else
-		{
-			putchar(format[len]);
-			printed += 2;
-		}
-		len++;
-	}
+            if (format[len] == 'c')
+            {
+                char c = va_arg(args, int);
+                putchar(c);
+                printed++;
+            }
+            else if (format[len] == 's')
+            {
+                char *str = va_arg(args, char *);
+                while (*str != '\0')
+                {
+                    putchar(*str);
+                    printed++;
+                    str++;
+                }
+            }
+            else if (format[len] == 'd' || format[len] == 'i')
+            {
+                int num = va_arg(args, int);
+                printf("%d", num);
+                printed++;
+            }
+            else
+            {
+                putchar('%');
+                putchar(format[len]);
+                printed += 2;
+            }
+        }
+        else
+        {
+            putchar(format[len]);
+            printed++;
+        }
+        len++;
+    }
 
-	va_end(args);
+    va_end(args);
 
-	return (printed);
+    return printed;
 }
+
