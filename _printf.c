@@ -32,6 +32,8 @@ int _printf(const char *format, ...)
 				putchar(c);
 				printed += 1;
 			}
+			else if (format[len] == 's')
+				printed += 1;
 			else
 			{
 				putchar('%');
