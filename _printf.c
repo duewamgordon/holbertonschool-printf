@@ -30,10 +30,10 @@ int _printf(const char *format, ...)
 			{
 				char c = va_arg(args, int);
 				putchar(c);
-				printed += 1;
+				printed += 2;
 			}
 			else if (format[len] == 's')
-				printed += 1;
+				printed += 2;
 			else
 			{
 				putchar('%');
@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			putchar(format[len]);
-			printed += 1;
+			printed += 2;
 		}
 		len++;
 	}
