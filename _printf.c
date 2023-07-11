@@ -32,6 +32,7 @@ int _printf(const char *format, ...)
 				_putchar(c);
 				printed++;
 			}
+			}
 			else if (format[len] == 's')
 			{
 				char *str = va_arg(args, char *);
@@ -53,4 +54,4 @@ int _printf(const char *format, ...)
 	va_end(args);
 
 	return (printed);
-}
+	}
