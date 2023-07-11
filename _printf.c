@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include "main.h"
 
 /**
  * _printf - Prints formatted output to stdout.
@@ -28,21 +29,21 @@ int _printf(const char *format, ...)
 			if (format[len] == 'c')
 			{
 				char c = va_arg(args, int);
-				putchar(c);
+				_putchar(c);
 				printed += 2;
 			}
 			else if (format[len] == 's')
 				printed += 2;
 			else
 			{
-				putchar('%');
-				putchar(format[len]);
+				_putchar('%');
+				_putchar(format[len]);
 				printed += 2;
 			}
 		}
 		else
 		{
-			putchar(format[len]);
+			_putchar(format[len]);
 			printed += 2;
 		}
 		len++;
