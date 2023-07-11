@@ -31,14 +31,14 @@ int _printf(const char *format, ...)
 
 			if (format[len] == 'c')
 			{
-<<<<<<< HEAD
+
 				char c = va_arg(args, int);
 				_putchar(c);
 				printed++;
 			}
 			}
 			else if (format[len] == 's')
-=======
+				
 			else if (format[len] == 's')
 				putchar(c);
 				printed += 1;
@@ -46,7 +46,7 @@ int _printf(const char *format, ...)
 			else if (format[len] == 's')
 				printed += 1;
 			else
->>>>>>> 0a41a6fd886e83adbdc6e4f29ed5a623c1e4ce83
+
 			{
 				char *str = va_arg(args, char *);
 				while (*str != '\0')
@@ -54,8 +54,7 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				printed ++;
 				str++;
-<<<<<<< HEAD
-=======
+
 			
 				return (-1);
 		
@@ -70,21 +69,21 @@ int _printf(const char *format, ...)
 			_putchar('%');
 			_putchar(format[len]);
 			printed += 2;
->>>>>>> 0a41a6fd886e83adbdc6e4f29ed5a623c1e4ce83
+
 			}
 		}
 		else
 		{
-<<<<<<< HEAD
+
 			_putchar(format[len]);
 			printed ++;
-=======
+
 			putchar(format[len]);
 			printed += 1;
 			_putchar(format[len]);
 			
 			printed++;
->>>>>>> 0a41a6fd886e83adbdc6e4f29ed5a623c1e4ce83
+
 		}
 		len++;
 	}
