@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include "MAIN_H"
+#include "main.h"
 
 /**
  * _printf - Prints formatted output to stdout.
