@@ -33,6 +33,16 @@ int _printf(const char *format, ...)
 				_putchar(c);
 				printed += 1;
 			}
+			else if (format[len] == 's')
+			{
+				char *str = va_arg(args, char *);
+				while (*str != '\0')
+				{
+					_putchar(*str);
+					str++;
+					printed +=1;
+				}
+			}
 			else
 			{
 				_putchar('%');
