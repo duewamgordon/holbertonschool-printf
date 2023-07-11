@@ -36,18 +36,16 @@ int _printf(const char *format, ...)
 				_putchar(c);
 				printed++;
 			}
-			}
 			else if (format[len] == 's')
 				
 			else if (format[len] == 's')
 				putchar(c);
 				printed += 1;
-			}
+		}
 			else if (format[len] == 's')
 				printed += 1;
 			else
 
-			{
 				char *str = va_arg(args, char *);
 				while (*str != '\0')
 			{
@@ -55,9 +53,9 @@ int _printf(const char *format, ...)
 				printed ++;
 				str++;
 
-			
 				return (-1);
-		
+			}
+	}
 		if (format[len] == 'c')
 		{
 			char c = va_arg(args, int);
@@ -70,11 +68,9 @@ int _printf(const char *format, ...)
 			_putchar(format[len]);
 			printed += 2;
 
-			}
 		}
 		else
 		{
-
 			_putchar(format[len]);
 			printed ++;
 
@@ -86,7 +82,6 @@ int _printf(const char *format, ...)
 
 		}
 		len++;
-	}
-
+	
 	return (printed);
-	}
+}
