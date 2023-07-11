@@ -30,21 +30,22 @@ int _printf(const char *format, ...)
 			{
 				char c = va_arg(args, int);
 				_putchar(c);
-				printed += 2;
+				printed++;
 			}
 			else if (format[len] == 's')
-				printed += 2;
-			else
+			{
+				char *str = va_arg(args, char *);
+				while (*str != '\0')
 			{
 				_putchar('%');
-				_putchar(format[len]);
-				printed += 2;
+				printed ++;
+				str++;
 			}
 		}
 		else
 		{
 			_putchar(format[len]);
-			printed += 2;
+			printed ++;
 		}
 		len++;
 	}
