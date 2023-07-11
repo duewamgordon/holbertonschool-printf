@@ -5,7 +5,7 @@
 
 /**
  * _printf - Prints formatted output to stdout.
- * @format: A character string containing format specifiers.
+ * @format: A character string containing format specifiers.ab
  *
  * Return: The number of characters printed.
  */
