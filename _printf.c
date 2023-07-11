@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+
 #include "main.h"
 
 /**
@@ -24,15 +25,18 @@ int _printf(const char *format, ...)
 		{
 			len++;
 			if (format[len] == '\0')
+				
 				return (-1);
 
 			if (format[len] == 'c')
 			{
-				char c = va_arg(args, int);
-				_putchar(c);
-				printed++;
+			else if (format[len] == 's')
+				putchar(c);
+				printed += 1;
 			}
 			else if (format[len] == 's')
+				printed += 1;
+			else
 			{
 				char *str = va_arg(args, char *);
 				while (*str != '\0')
@@ -40,17 +44,32 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				printed ++;
 				str++;
+			
+				return (-1);
+		
+		if (format[len] == 'c')
+		{
+			char c = va_arg(args, int);
+			_putchar(c);
+			printed += 2;
+		}
+		else if (format[len] == 's')
+		{
+			_putchar('%');
+			_putchar(format[len]);
+			printed += 2;
 			}
 		}
 		else
 		{
+			putchar(format[len]);
+			printed += 1;
 			_putchar(format[len]);
-			printed ++;
+			
+			printed++;
 		}
 		len++;
 	}
 
-	va_end(args);
-
 	return (printed);
-}
+	}
