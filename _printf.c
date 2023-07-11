@@ -28,21 +28,13 @@ int _printf(const char *format, ...)
 
 			if (format[len] == 'c')
 			{
-				char c = va_arg(args, int);
-<<<<<<< HEAD
-				_putchar(c);
-				printed++;
-			}
-			}
 			else if (format[len] == 's')
-=======
 				putchar(c);
 				printed += 1;
 			}
 			else if (format[len] == 's')
 				printed += 1;
 			else
->>>>>>> parent of fcc9bef... printf.c
 			{
 				char *str = va_arg(args, char *);
 				while (*str != '\0')
@@ -54,15 +46,8 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-<<<<<<< HEAD
-			_putchar(format[len]);
-			printed ++;
-=======
 			putchar(format[len]);
 			printed += 1;
->>>>>>> parent of fcc9bef... printf.c
-		}
-		len++;
 	}
 
 	va_end(args);
