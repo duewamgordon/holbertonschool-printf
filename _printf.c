@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdarg.h>
+#include "main.h"
 
 /**
  * _printf - Prints formatted output to stdout.
@@ -10,44 +9,42 @@
 
 int _printf(const char *format, ...)
 {
-        va_list args;
-        int len = 0, printed = 0;
+	va_list args;
+	int len = 0, printed = 0;
 
-        if (format == NULL)
-                return (-1);
+	if (format == NULL)
+		return (-1);
 
-        va_start(args, format);
+	va_start(args, format);
 
-        while (format[len] != '\0')
-        {
-                if (format[len] == '%')
-                {
-                        len++;
-                        if (format[len] == '\0')
-                                return (-1);
+	while (format[len] != '\0')
+	{
+		if (format[len] == '%')
+		{
+			len++;
+			if (format[len] == '\0')
+			return (-1);
+		
+		if (format[len] == 'c')
+		{
+			char c = va_arg(args, int);
+			_putchar(c);
+			printed += 2;
+		}
+		else if (format[len] == 's')
+		{
+			_putchar('%');
+			_putchar(format[len]);
+			printed += 2;
+			}
+		}
+		else
+		{
+			_putchar(format[len]);
+			printed++;
+		}
+		len++;
+	}
 
-                        if (format[len] == 'c')
-                        {
-                                char c = va_arg(args, int);
-                                putchar(c);
-                                printed += 2;
-                        }
-                        else if (format[len] == 's')
-		     	{
-                                putchar('%');
-                                putchar(format[len]);
-                                printed += 2;
-                        }
-                }
-                else
-                {
-                        putchar(format[len]);
-                        printed += 2;
-                }
-                len++;
-        }
-
-        va_end(args);
-
-        return (printed);
+	return (printed);
 }
