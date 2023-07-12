@@ -12,54 +12,59 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int len = 0, printed = 0;
+	int printed = 0;
 
-	if (format == NULL)
-		return (-1);
 	va_start(args, format);
 
-	while (format[len] != '\0')
+	while (*format != '\0')
 	{
-		if (format[len] == '%')
+		if (*format == '%')
 		{
-			len++;
-			if (format[len] == '\0')
-				return (-1);
+			format++;
 
-			if (format[len] == 'c')
+			switch (*format)
 			{
-
-				char c = va_arg(args, int);
+				case 'c':
+					{
+					char c = (char)va_arg(args, int);
 				_putchar(c);
 				printed++;
-			}
-				
-			else if (format[len] == 's')
-			{
-				char *str = va_arg(args, char *);
+				break;
+					}
+				case 's':
+					{
+
+					char *str = va_arg(args, char*);
 				while (*str != '\0')
 				{
-					_putchar(*str);
-					printed++;
-					str++;
+				_putchar(*str);
+				printed++;
+				str++;
 				}
-			}
-			else
-			{
+			break;
+					}
+				case '%':
+					{
+					_putchar('%');
+				printed++;
+			break;
+					}
+				default:
 				_putchar('%');
-				_putchar(format[len]);
+				_putchar(*format);
 				printed += 2;
+			break;
 			}
 		}
 		else
 		{
-			putchar(format[len]);
-			printed++;
+		_putchar(*format);
+		printed++;
 		}
-		len++;
+	
+	format++;
 	}
-
 	va_end(args);
 
-	return (printed);
-}
+	return printed;
+}	
