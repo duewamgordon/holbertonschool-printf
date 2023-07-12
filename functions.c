@@ -10,7 +10,7 @@
  */
 int _print_char(va_list args)
 {
-	char c = va_arg(args, int);
+	int c = va_arg(args, int);
 
 	_putchar(c);
 
@@ -28,14 +28,61 @@ int _print_string(va_list args)
 	char *str = va_arg(args, char *);
 	int len = 0;
 
-	if (str == NULL)
-		str = "(null)";
-
-	while (str[len] != '\0')
+	if (str != NULL)
 	{
-		_putchar(str[len]);
-		len++;
+		while (str[len])
+		{
+			_putchar(str[len]);
+		 	len++;
+		}
+		return (len);
 	}
-	return (len);
+	
+	_putchar('(');
+	_putchar('n');
+	_putchar('u');
+	_putchar('l');
+	_putchar('l');
+	_putchar(')');
+
+	return (6);
+}
+int _print_int(va_list args)
+{
+	int count = 1, unsigned_int = 0;
+	unsigned int temp = 0;
+	
+	temp = va_arg(args, int);
+	unsigned_int = temp;
+	
+	if (unsigned_int < 0)
+	{	
+		_putchar('-');
+		unsigned_int = unsigned_int * -1;
+		temp = unsigned_int;
+		count++;
+	}
+	
+	while (temp > 9)
+	{
+		temp = temp / 10;
+		count++;
+	}
+	_print_mod(unsigned_int);
+	
+	return (count);
+}
+
+void _print_mod(unsigned int temp)
+{
+	int num; 
+	num = temp;
+
+	if (num / 10)
+	{
+		num = (num / 10);
+		_print_int(num);
+	}
+	_putchar(num % 10 + '0');
 }
 
