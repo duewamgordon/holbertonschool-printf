@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-#include <stdio.h>
-#include <stdarg.h>
->>>>>>> 6de72ba7ded87fced3f72652be1d0b5d70dac290
 #include "main.h"
 
 /**
@@ -16,14 +11,11 @@ int _printf(const char *format, ...)
 {
 	int arglen = 0;
 	va_list args;
-<<<<<<< HEAD
-=======
-	int printed = 0;
->>>>>>> 6de72ba7ded87fced3f72652be1d0b5d70dac290
 
+	if (format == NULL)
+		return (-1);
 	va_start(args, format);
 
-<<<<<<< HEAD
 	arglen = check_format(format, args);
         va_end(args);
 
@@ -88,57 +80,3 @@ int check_char(char type)
 	}
 	return (0);
 }
-=======
-	while (*format != '\0')
-	{
-		if (*format == '%')
-		{
-			format++;
-
-			switch (*format)
-			{
-				case 'c':
-					{
-					char c = (char)va_arg(args, int);
-				_putchar(c);
-				printed++;
-				break;
-					}
-				case 's':
-					{
-
-					char *str = va_arg(args, char*);
-				while (*str != '\0')
-				{
-				_putchar(*str);
-				printed++;
-				str++;
-				}
-			break;
-					}
-				case '%':
-					{
-					_putchar('%');
-				printed++;
-			break;
-					}
-				default:
-				_putchar('%');
-				_putchar(*format);
-				printed += 2;
-			break;
-			}
-		}
-		else
-		{
-		_putchar(*format);
-		printed++;
-		}
-	
-	format++;
-	}
-	va_end(args);
-
-	return printed;
-}	
->>>>>>> 6de72ba7ded87fced3f72652be1d0b5d70dac290
